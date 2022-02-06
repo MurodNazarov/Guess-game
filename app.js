@@ -10,25 +10,23 @@ const displayMessage = function (message) {
 // Timer
 let timer;
 const timerStart = function () {
-  const tick = function () {
+  let time = 120;
+
+  const timer = setInterval(function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
     document.querySelector(".timer").textContent = `${min}:${sec}`;
-    
+
+    time--;
     // Condition
     if (time == 0) {
-      clearInterval(timer);
+      clearTimeout(timer);
       alert("You Are Lose !!! 😥");
-      document.querySelector(".message").textContent = "You Are Lose 😥 !!!";
+      document.querySelector(".message").textContent = "You Are Loose 😥 !!!";
       document.querySelector(".main").textContent = "Game Over";
       document.querySelector("body").style.backgroundColor = "red";
-      time--;
     }
-  },
-  let time = 120;
-
-  tick();
-  const timer = setInterval(tick, 1000);
+  }, 1000);
   return timer;
 };
 timerStart();
@@ -47,11 +45,12 @@ document.querySelector(".check").addEventListener("click", function (e) {
     //When player wins
   } else if (guess === secretNumber) {
     // document.querySelector(".message").textContent = "Correct Number!";
-    displayMessage("Correct Message 🎉 !!!");
+    displayMessage("Correct Number 🎉 !!!");
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector("body").style.backgroundColor = "#8ea604";
     alert("Congratulations; You are Great 🎉 !!!");
     document.querySelector(".number").style.width = "200px";
+    clearInterval(timer);
 
     //when guess is too high
   } else if (guess > secretNumber) {
@@ -88,8 +87,7 @@ document.querySelector(".check").addEventListener("click", function (e) {
     document.querySelector("body").style.backgroundColor = "#161400";
     document.querySelector(".number").style.width = "150px";
     //Timer Function
-    if (timer) clearInterval(timer);
-
-    timer = timerStart();
+    clearTimeout(timer);
+    timerStart();
   });
 });
