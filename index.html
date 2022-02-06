@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Game</title>
+</head>
+
+<body class="bg-[#4c5b61] text-[#fff] font-[Moo+Lah+Lah]">
+  <section class=" container mx-auto py-[10px]">
+    <!-- header-section starts -->
+    <div class="flex justify-between">
+      <button class="again text-[24px] bg-[#fff] py-[10px] px-[20px] text-[#161400]">
+        Again
+      </button>
+      <div class="flex flex-col items-center ">
+        <div class="text-[24px]">
+          < Between 1 and 20>
+        </div>
+        <div class="text-[20px] bg-[#fff] py-[5px] px-[10px] mt-[10px] text-[#000] ">
+          Timer <span class="timer"></span>
+        </div>
+      </div>
+    </div>
+    <!-- header-section-end -->
+    <!-- main-section-starts -->
+    <div class=" main flex justify-center text-[60px] font-bold my-[15px]">
+      Guess My Number!
+    </div>
+    <div class="mx-auto my-[30px] w-[150px] bg-[#fff] text-[80px] text-center text-[#000] number">
+      ?
+    </div>
+    <!-- main-section-end -->
+    <!-- flex-section-starts -->
+    <div class="my-[60px] flex flex-row justify-around">
+      <!-- form-section starts -->
+      <form class="flex flex-col w-1/3">
+        <input
+          class="guess py-[15px] px-[15px] text-[#fff] mb-[20px] text-[50px] bg-transparent border-white border-4 focus:outline-none"
+          type="number" />
+        <button class="btn check py-[10px] px-[10px] text-[30px] bg-[#fff] text-[#161400]" type="submit">
+          Check
+        </button>
+      </form>
+      <!-- form-section ends -->
+      <!-- text-section-starts -->
+      <div>
+        <p class="text-[30px] mb-[50px] message">Start Guessing...</p>
+        <p class="text-[30px]">Score: <span class="score">20</span></p>
+        <p class="text-[30px]">Highscore: <span>0</span></p>
+      </div>
+      <!-- text-section-ends -->
+    </div>
+    <!-- flex-section-ends -->
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>
